@@ -35,14 +35,14 @@ subscriptions =
 [power voron_master]
 type = tasmota
 off_when_shutdown = False
-address = 192.168.2.126
+address = 192.168.4.11
 bound_service = klipper
 restart_klipper_when_powered = True
 
 [power voron_reset]
 type = tasmota
 off_when_shutdown = True
-address = 192.168.2.127
+address = 192.168.4.12
 bound_service = klipper
 restart_klipper_when_powered = True
 
@@ -143,4 +143,14 @@ requirements = requirements.txt
 system_dependencies = system-dependencies.json
 primary_branch = main
 managed_services = klipper
+
+[update_manager moonraker-obico]
+type = git_repo
+path = /home/pi/moonraker-obico
+origin = https://github.com/TheSpaghettiDetective/moonraker-obico.git
+env = /home/pi/moonraker-obico/../moonraker-obico-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	moonraker-obico
 
